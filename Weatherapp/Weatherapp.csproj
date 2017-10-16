@@ -42,6 +42,10 @@
     <UseVSHostingProcess>false</UseVSHostingProcess>
   </PropertyGroup>
   <ItemGroup>
+    <Content Include="Pages\WeatherAppPart.aspx" />
+    <Content Include="Pages\WeatherAppPart\Elements.xml">
+      <OpcRelationship>feature-elementmanifest</OpcRelationship>
+    </Content>
     <Content Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\jquery-1.9.1.js" />
     <Content Include="Scripts\jquery-1.9.1.min.js" />
@@ -53,6 +57,9 @@
     <Content Include="Pages\Default.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Pages\WeatherAppPart\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{ea155f4a-108e-4883-87af-930cc94450a4}</SharePointProjectItemId>
+    </None>
     <None Include="Scripts\jquery-1.9.1.min.map" />
     <None Include="Scripts\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{4cc0696b-a567-49b3-a067-667aa97265bd}</SharePointProjectItemId>

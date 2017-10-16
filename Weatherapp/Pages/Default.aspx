@@ -21,9 +21,7 @@
 <asp:Content ContentPlaceHolderID="PlaceHolderMain" runat="server">
 
 	<div>
-		<p id="message">
-			initializing...
-		</p>
+		<p id="message">initializing...</p>
 	</div>
 
 </asp:Content>
