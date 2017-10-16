@@ -1,4 +1,33 @@
-﻿'use strict';
+﻿let app = angular.module('WeatherApp', ['ngRoute', 'chart.js']);
+
+//controllers
+app.controller('weatherController', ['$scope', 'WeatherService'
+	, function ($scope, WeatherService) {
+		$scope.data = WeatherService;
+		$scope.location = getQueryStringParameter('Location');
+		$scope.temprature = getQueryStringParameter('Temprature');
+		$scope.template = getQueryStringParameter('Template');
+
+
+		activate();
+
+		function activate() {
+
+		}
+	}
+]);
+
+//service
+app.service("WeatherService", ['$http', '$q', function ($http, $q) {
+	let service = {
+
+	}
+	return service;
+
+}]);
+
+
+
 function getQueryStringParameter(urlParameterKey) {
 	let params = document.URL.split('?')[1].split('&');
 	let strParams = '';
@@ -10,18 +39,24 @@ function getQueryStringParameter(urlParameterKey) {
 }
 jQuery.noConflict();
 (function ($) {
-	let temprature = getQueryStringParameter('Temprature');
-	let location = getQueryStringParameter('Location');
-	let template = getQueryStringParameter('Template');
+	
 
-	let windspeed = getQueryStringParameter('Windspeed');
-	let winddirection = getQueryStringParameter('Winddirection');
+	let windSpeed = getQueryStringParameter('Windspeed');
+	let windDirection = getQueryStringParameter('Winddirection');
 	let showWeatherDays = getQueryStringParameter('Weatherdays');
 
+	let date = new Date();
+	let formatedDate = moment(date).format("YYYY-MM-DD");
+	let formatedTime = moment(date).format("LT");
+
+	$("#date").html(formatedDate);
+	$("#time").html(formatedTime);
+	$("#location").html(location);
 
 
-	$("#picture").toggle(!!showPic);
 
-
+	$(".windSpeed").toggle(!!windSpeed);
+	$(".windDirection").toggle(!!windDirection);
+	$(".showWeatherDays").toggle(!!showWeatherDays);
 
 })(jQuery);

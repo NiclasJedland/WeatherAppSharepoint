@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Elements xmlns="http://schemas.microsoft.com/sharepoint/">
-	<ClientWebPart Name="WeatherAppPart" Title="WeatherAppPart Title" Description="WeatherAppPart Description" DefaultWidth="300" DefaultHeight="200">
+	<ClientWebPart Name="WeatherAppPart" Title="WeatherAppPart" Description="WeatherApp" DefaultWidth="300" DefaultHeight="200">
 
 		<Content Type="html" Src="~appWebUrl/Pages/WeatherAppPart.aspx?{StandardTokens}
 				&amp;Template=_Template_
@@ -54,7 +54,7 @@
 					  WebDisplayName="Show windspeed?"
 					  DefaultValue="true">
 			</Property>
-			
+
 			<Property Name="Winddirection"
 					  Type="boolean"
 					  WebBrowsable="true"
@@ -64,7 +64,7 @@
 					  WebDisplayName="Show wind direction?"
 					  DefaultValue="true">
 			</Property>
-			
+
 			<Property Name="Weatherdays"
 					  Type="boolean"
 					  WebBrowsable="true"
@@ -74,7 +74,7 @@
 					  WebDisplayName="Show the next 5 days?"
 					  DefaultValue="true">
 			</Property>
-			
+
 		</Properties>
 
 	</ClientWebPart>
