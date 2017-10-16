@@ -1,16 +1,81 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Elements xmlns="http://schemas.microsoft.com/sharepoint/">
-  <ClientWebPart Name="WeatherAppPart" Title="WeatherAppPart Title" Description="WeatherAppPart Description" DefaultWidth="300" DefaultHeight="200">
+	<ClientWebPart Name="WeatherAppPart" Title="WeatherAppPart Title" Description="WeatherAppPart Description" DefaultWidth="300" DefaultHeight="200">
 
-    <!-- Content element identifies the location of the page that will render inside the client web part
-         Properties are referenced on the query string using the pattern _propertyName_
-         Example: Src="~appWebUrl/Pages/ClientWebPart1.aspx?Property1=_property1_" -->
-    <Content Type="html" Src="~appWebUrl/Pages/WeatherAppPart.aspx?{StandardTokens}" />
+		<Content Type="html" Src="~appWebUrl/Pages/WeatherAppPart.aspx?{StandardTokens}
+				&amp;Template=_Template_
+				&amp;Temprature=_Temprature_
+				&amp;Location=_Location_
+				&amp;Windspeed=_Windspeed_
+				&amp;Winddirection=_Winddirection_
+				&amp;Weatherdays=_Weatherdays_" />
 
-    <!-- Define properties in the Properties element.
-         Remember to put Property Name on the Src attribute of the Content element above. -->
-    <Properties>
-    </Properties>
+		<Properties>
 
-  </ClientWebPart>
+			<Property Name="Template"
+					  Type="enum"
+					  RequiresDesignerPermission="true"
+					  WebCategory="Themes"
+					  WebDisplayName="Theme"
+					  DefaultValue="2">
+				<EnumItems>
+					<EnumItem WebDisplayName="Dark Theme" Value="1"/>
+					<EnumItem WebDisplayName="Light Theme" Value="2"/>
+					<EnumItem WebDisplayName="Gray Theme" Value="3"/>
+				</EnumItems>
+			</Property>
+
+			<Property Name="Location"
+					  Type="string"
+					  WebBrowsable="true"
+					  WebDescription="Description goes here"
+					  RequiresDesignerPermission="true"
+					  WebCategory="Location"
+					  WebDisplayName="Location"
+					  DefaultValue="Stockholm">
+			</Property>
+
+			<Property Name="Temprature"
+					  Type="boolean"
+					  WebBrowsable="true"
+					  WebDescription="Temprature"
+					  RequiresDesignerPermission="true"
+					  WebCategory="Temprature"
+					  WebDisplayName="Show as Fahrenheit?"
+					  DefaultValue="false">
+			</Property>
+
+			<Property Name="Windspeed"
+					  Type="boolean"
+					  WebBrowsable="true"
+					  WebDescription="Windspeed"
+					  RequiresDesignerPermission="true"
+					  WebCategory="Wind"
+					  WebDisplayName="Show windspeed?"
+					  DefaultValue="true">
+			</Property>
+			
+			<Property Name="Winddirection"
+					  Type="boolean"
+					  WebBrowsable="true"
+					  WebDescription="Wind direction"
+					  RequiresDesignerPermission="true"
+					  WebCategory="Wind"
+					  WebDisplayName="Show wind direction?"
+					  DefaultValue="true">
+			</Property>
+			
+			<Property Name="Weatherdays"
+					  Type="boolean"
+					  WebBrowsable="true"
+					  WebDescription="Temprature"
+					  RequiresDesignerPermission="true"
+					  WebCategory="Weather"
+					  WebDisplayName="Show the next 5 days?"
+					  DefaultValue="true">
+			</Property>
+			
+		</Properties>
+
+	</ClientWebPart>
 </Elements>

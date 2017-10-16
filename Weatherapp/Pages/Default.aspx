@@ -19,7 +19,7 @@
 </asp:Content>
 
 <asp:Content ContentPlaceHolderID="PlaceHolderMain" runat="server">
-hej
+
 	<div>
 		<p id="message">initializing...</p>
 	</div>
