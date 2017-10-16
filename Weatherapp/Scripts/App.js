@@ -14,14 +14,14 @@ jQuery.noConflict();
 	let location = getQueryStringParameter('Location');
 	let template = getQueryStringParameter('Template');
 
-	let windspeed = getQueryStringParameter('Windspeed');
-	let winddirection = getQueryStringParameter('Winddirection');
+	let windSpeed = getQueryStringParameter('Windspeed');
+	let windDirection = getQueryStringParameter('Winddirection');
 	let showWeatherDays = getQueryStringParameter('Weatherdays');
 
 
 
-	$("#picture").toggle(!!showPic);
-
-
+	$(".windSpeed").toggle(!!windSpeed);
+	$(".windDirection").toggle(!!windDirection);
+	$(".showWeatherDays").toggle(!!showWeatherDays);
 
 })(jQuery);
