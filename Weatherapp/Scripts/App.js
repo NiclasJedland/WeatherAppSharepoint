@@ -8,6 +8,10 @@ app.controller('weatherController', ['$scope', 'WeatherService'
 		$scope.temprature = getQueryStringParameter('Temprature');
 		$scope.template = getQueryStringParameter('Template');
 
+		let date = new Date();
+		$scope.formatedDate = moment(date).format("YYYY-MM-DD");
+		$scope.formatedTime = moment(date).format("LT");
+
 
 		activate();
 
@@ -45,9 +49,7 @@ jQuery.noConflict();
 	let windDirection = getQueryStringParameter('Winddirection');
 	let showWeatherDays = getQueryStringParameter('Weatherdays');
 
-	let date = new Date();
-	let formatedDate = moment(date).format("YYYY-MM-DD");
-	let formatedTime = moment(date).format("LT");
+
 
 	$("#date").html(formatedDate);
 	$("#time").html(formatedTime);
