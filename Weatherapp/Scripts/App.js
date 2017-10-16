@@ -18,6 +18,14 @@ jQuery.noConflict();
 	let windDirection = getQueryStringParameter('Winddirection');
 	let showWeatherDays = getQueryStringParameter('Weatherdays');
 
+	let date = new Date();
+	let formatedDate = moment(date).format("YYYY-MM-DD");
+	let formatedTime = moment(date).format("LT");
+
+	$("#date").html(formatedDate);
+	$("#time").html(formatedTime);
+	$("#location").html(location);
+
 
 
 	$(".windSpeed").toggle(!!windSpeed);
