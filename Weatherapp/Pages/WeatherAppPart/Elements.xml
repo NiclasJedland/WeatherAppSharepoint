@@ -3,12 +3,12 @@
 	<ClientWebPart Name="WeatherAppPart" Title="WeatherAppPart" Description="WeatherApp" DefaultWidth="300" DefaultHeight="200">
 
 		<Content Type="html" Src="~appWebUrl/Pages/WeatherAppPart.aspx?{StandardTokens}
-				&amp;Template=_Template_
-				&amp;Temprature=_Temprature_
-				&amp;Location=_Location_
-				&amp;Windspeed=_Windspeed_
-				&amp;Winddirection=_Winddirection_
-				&amp;Weatherdays=_Weatherdays_" />
+				 &amp;Template=_Template_
+				 &amp;Temprature=_Temprature_
+				 &amp;Location=_Location_
+				 &amp;Windspeed=_Windspeed_
+				 &amp;Winddirection=_Winddirection_
+				 &amp;Weatherdays=_Weatherdays_"/>
 
 		<Properties>
 

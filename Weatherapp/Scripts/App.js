@@ -1,25 +1,42 @@
-﻿let app = angular.module('WeatherApp', ['ngRoute', 'chart.js']);
+﻿let app = angular.module('WeatherApp', ['chart.js']);
 
 //controllers
 app.controller('weatherController', ['$scope', 'WeatherService'
 	, function ($scope, WeatherService) {
+		let temprature = getQueryStringParameter('Temprature');
+
 		$scope.data = WeatherService;
+		$scope.formatedDate = moment().format("YYYY-MM-DD");
 		$scope.location = getQueryStringParameter('Location');
-		$scope.temprature = getQueryStringParameter('Temprature');
 		$scope.template = getQueryStringParameter('Template');
 
-		let date = new Date();
-		$scope.formatedDate = moment(date).format("YYYY-MM-DD");
-		$scope.formatedTime = moment(date).format("LT");
+		$scope.showWindSpeed = getQueryStringParameter('Windspeed');
+		$scope.showWindDirection = getQueryStringParameter('Winddirection');
+		$scope.showWeatherDays = getQueryStringParameter('Weatherdays');
 
+		$scope.degrees = (temprature.trim() == "false" ? getTemprature() + "C" : convertToFarenheit(getTemprature()) + "F");
 
 		activate();
 
 		function activate() {
 
+
+
+
 		}
+
+
+
 	}
 ]);
+
+app.controller('timeController', function ($scope, $interval) {
+	var tick = function () {
+		$scope.clock = moment().format("LTS");
+	}
+	tick();
+	$interval(tick, 1000);
+});
 
 //service
 app.service("WeatherService", ['$http', '$q', function ($http, $q) {
@@ -45,20 +62,17 @@ jQuery.noConflict();
 (function ($) {
 	
 
-	let windSpeed = getQueryStringParameter('Windspeed');
-	let windDirection = getQueryStringParameter('Winddirection');
-	let showWeatherDays = getQueryStringParameter('Weatherdays');
-
-
-
-	$("#date").html(formatedDate);
-	$("#time").html(formatedTime);
-	$("#location").html(location);
-
-
-
 	$(".windSpeed").toggle(!!windSpeed);
 	$(".windDirection").toggle(!!windDirection);
 	$(".showWeatherDays").toggle(!!showWeatherDays);
 
 })(jQuery);
+
+function getTemprature() {
+	return 20;
+}
+
+
+function convertToFarenheit(degreeC) {
+	return (9 / 5) * degreeC + 32;
+}

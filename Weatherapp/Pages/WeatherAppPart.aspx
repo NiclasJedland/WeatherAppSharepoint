@@ -19,10 +19,24 @@
 <body class="container" ng-app="WeatherApp" ng-controller="weatherController">
 	<div class="content">
 		<div class="row">
-			<div class="col-xs-6">{{location}}</div>
-			<div class="col-xs-6">{{formatedDate}}</div>
-			<div class="col-xs-12 time">{{formatedTime}}</div>
+			<div class="col-xs-6 text-center">{{location}}</div>
+			<div class="col-xs-6 text-center">{{formatedDate}}</div>
+			<div ng-controller="timeController" class="col-xs-12 text-center time">{{clock}}</div>
+			<div class="col-xs-6 text-center">{{degrees}}</div>
+			
+			<div class="col-xs-12 text-center">
+				<div class="col-xs-6" ng-show="showWindSpeed">
+					<%-- TODO: show wind speed here --%>
+				</div>
+				<div class="col-xs-6" ng-show="showWindDirection">
+					<%-- TODO: show wind direction here --%>
+				</div>
+			</div>
+			<div class="col-xs-12 text-center" ng-show="showWeatherDays">
+				<%-- TODO: show 5 days weather here --%>
+			</div>
 		</div>
+
 	</div>
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.6/angular.js" integrity="sha256-PKcnQwI1O4OGwjDP7YRrEiqX/mCmEf9z6IplfVbMOjs=" crossorigin="anonymous"></script>
