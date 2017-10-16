@@ -60,11 +60,6 @@ function getQueryStringParameter(urlParameterKey) {
 }
 jQuery.noConflict();
 (function ($) {
-	
-
-	$(".windSpeed").toggle(!!windSpeed);
-	$(".windDirection").toggle(!!windDirection);
-	$(".showWeatherDays").toggle(!!showWeatherDays);
 
 })(jQuery);
 
