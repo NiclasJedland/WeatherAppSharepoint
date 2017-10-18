@@ -1,3 +1,8 @@
-﻿.time{
-	font-size: 5em;
+﻿.time {
+    font-size: 30px;
+    margin-top: 16px;
+    margin-bottom: 16px;
+}
+.row div:nth-child(-n + 2) {
+    margin-top: 17px;
 }

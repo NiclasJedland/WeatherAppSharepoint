@@ -3,7 +3,7 @@
 //controllers
 app.controller('weatherController', ['$scope', 'WeatherService'
     , function ($scope, WeatherService) {
-		let temprature = getQueryStringParameter('Temprature');
+		let fahrenheit = getQueryStringParameter('Temprature');
 
 		$scope.data = WeatherService;
 		$scope.formatedDate = moment().format("YYYY-MM-DD");
@@ -14,12 +14,14 @@ app.controller('weatherController', ['$scope', 'WeatherService'
 		$scope.showWindDirection = getQueryStringParameter('Winddirection');
 		$scope.showWeatherDays = getQueryStringParameter('Weatherdays');
 
-		$scope.degrees = (temprature.trim() == "false" ? getTemprature() + "C" : convertToFarenheit(getTemprature()) + "F");
-
         WeatherService.getWeather();
         function activate(weather) {
             $scope.windSpeed = weather.data.currently.windSpeed;
-            $scope.degrees = weather.data.currently.temperature;
+            let evenTemp = Math.round(weather.data.currently.temperature);
+            if (fahrenheit.trim() == "false")
+                $scope.degrees = evenTemp + "ºC";
+            else
+                $scope.degrees = convertToFarenheit(weather.data.currently.temperature) + "ºF";
             $scope.windDirection = weather.data.currently.windBearing;
         }
         $scope.$on('eventFired', function (event, data) {
@@ -54,11 +56,7 @@ jQuery.noConflict();
 
 })(jQuery);
 
-function getTemprature() {
-	return 20;
-}
-
-
 function convertToFarenheit(degreeC) {
-	return (9 / 5) * degreeC + 32;
+    let evenTemp = Math.round((9 / 5) * degreeC + 32);
+    return evenTemp;
 }
