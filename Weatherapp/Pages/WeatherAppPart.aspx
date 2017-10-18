@@ -55,5 +55,6 @@
 
 
 	<script type="text/javascript" src="../Scripts/App.js"></script>
+    <script src="../Scripts/WeatherApi.js"></script>
 </body>
 </html>
