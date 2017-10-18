@@ -45,15 +45,19 @@
     <Content Include="Pages\WeatherAppPart.aspx" />
     <Content Include="Pages\WeatherAppPart\Elements.xml">
       <OpcRelationship>feature-elementmanifest</OpcRelationship>
+      <SubType>Designer</SubType>
     </Content>
     <Content Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\jquery-1.9.1.js" />
     <Content Include="Scripts\jquery-1.9.1.min.js" />
+    <Content Include="Scripts\WeatherService.js" />
     <None Include="packages.config" />
     <None Include="Pages\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{3dd794b6-6027-46f7-825d-4b6a7cb07a9a}</SharePointProjectItemId>
     </None>
-    <Content Include="Pages\Elements.xml" />
+    <Content Include="Pages\Elements.xml">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Pages\Default.aspx" />
   </ItemGroup>
   <ItemGroup>
@@ -71,7 +75,9 @@
     <None Include="Content\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{94368b40-2961-4a64-8ac5-f836a257b0ff}</SharePointProjectItemId>
     </None>
-    <Content Include="Content\Elements.xml" />
+    <Content Include="Content\Elements.xml">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Content\App.css" />
   </ItemGroup>
   <ItemGroup>

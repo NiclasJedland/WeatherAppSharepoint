@@ -22,14 +22,28 @@
 			<div class="col-xs-6 text-center">{{location}}</div>
 			<div class="col-xs-6 text-center">{{formatedDate}}</div>
 			<div ng-controller="timeController" class="col-xs-12 text-center time">{{clock}}</div>
-			<div class="col-xs-6 text-center">{{degrees}}</div>
+			<div class="col-xs-6 text-center">Temperatur: {{degrees}}C°</div>
 			
 			<div class="col-xs-12 text-center">
 				<div class="col-xs-6" ng-show="showWindSpeed">
+                    vind hastighet: {{windSpeed * 0.44704 | number: 2}} m/s
 					<%-- TODO: show wind speed here --%>
 				</div>
 				<div class="col-xs-6" ng-show="showWindDirection">
 					<%-- TODO: show wind direction here --%>
+                    vindens riktning är från
+                    <span ng-if="windDirection >= 315 || windDirection <= 45">
+                        norr
+                    </span>
+                    <span ng-if="windDirection <= 225 && windDirection >= 135">
+                        söder
+                    </span>
+                    <span ng-if="windDirection > 45 && windDirection < 135">
+                        öst
+                    </span>
+                    <span ng-if="windDirection > 225 && windDirection < 315">
+                        väst
+                    </span>
 				</div>
 			</div>
 			<div class="col-xs-12 text-center" ng-show="showWeatherDays">
@@ -55,6 +69,6 @@
 
 
 	<script type="text/javascript" src="../Scripts/App.js"></script>
-    <script src="../Scripts/WeatherApi.js"></script>
+    <script src="../Scripts/WeatherService.js"></script>
 </body>
 </html>

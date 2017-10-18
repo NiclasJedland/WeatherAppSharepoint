@@ -17,11 +17,14 @@ app.controller('weatherController', ['$scope', 'WeatherService'
 		$scope.degrees = (temprature.trim() == "false" ? getTemprature() + "C" : convertToFarenheit(getTemprature()) + "F");
 
         WeatherService.getWeather();
-        function activate() {
-            
+        function activate(weather) {
+            $scope.windSpeed = weather.data.currently.windSpeed;
+            $scope.degrees = weather.data.currently.temperature;
+            $scope.windDirection = weather.data.currently.windBearing;
         }
         $scope.$on('eventFired', function (event, data) {
             debugger;
+            activate(data);
         })
 
 
@@ -36,29 +39,6 @@ app.controller('timeController', function ($scope, $interval) {
 	tick();
 	$interval(tick, 1000);
 });
-
-//service
-app.service("WeatherService", ['$http', '$q', '$rootScope', function ($http, $q, $rootScope) {
-	let service = {
-        getWeather: getWeather
-	}
-    return service;
-
-    function getWeather() {
-        var locationn = getQueryStringParameter('Location').trim();
-        jQuery.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${locationn}%2C&key=AIzaSyBNtNprY2cSDn7zGZkUCATaRYy7ZR01PEM`, function (response) {
-            let latitude = response.results["0"].geometry.location.lat;
-            let longitude = response.results["0"].geometry.location.lng;
-            jQuery.get(`https://api.darksky.net/forecast/ee97f32f4ecd9a57a8697f39383616b6/${latitude},${longitude}?callback=?&units=si`, function (response) {
-                $rootScope.$broadcast('eventFired', {
-                    data: response
-                });
-            }, 'jsonp')
-        });
-    }
-}]);
-
-
 
 function getQueryStringParameter(urlParameterKey) {
 	let params = document.URL.split('?')[1].split('&');
