@@ -60,18 +60,14 @@
                        <p class="col-xs-12 text-center">{{summary}}</p>        
 			       </div>
                    <ul class="nav nav-tabs">
-                       <li class="nav-item" ng-repeat="dayInfo in daysInfo">
-                        <a class="nav-link" ng-click="clickedDayTab()">{{dayInfo.day}}</a>
+                       <li class="nav-item" ng-repeat="dayInfo in daysInfo" ng-class="{active : selectedTab === dayInfo}">
+                           <a class="nav-link" ng-click="setDayTab(dayInfo)">{{dayInfo.day}}</a>
                        </li>
                    </ul>
-                   <div ng-repeat="dayInfo in daysInfo">
-                       {{$index + 3}}
-                       <div ng-show="tab3">
-                            <h1>{{dayInfo.icon}}</h1>
-                            <p>{{dayInfo.summary}}</p>
-                            <p>{{dayInfo.minTemp}}</p>
-                            <p>{{dayInfo.maxTemp}}</p>
-                       </div>
+                   <div>
+                        <canvas id="iconDay" width="100" height="100"></canvas>
+                        <p class="col-xs-12 text-center">{{daysummary}}</p>
+                        <p class="col-xs-12 text-center">{{dayminTemp}}{{daymaxTemp}}</p>
                    </div>
                 </div>
         </div>

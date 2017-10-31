@@ -26,7 +26,6 @@ app.controller('weatherController', ['$scope', 'WeatherService'
             $scope.windDirection = weather.data.currently.windBearing;
             displayWeatherIcon("icon1", weather.data.currently.icon);
             let scndtabinfo = calculateSecondTabInfo(weather.data.daily);
-            debugger;
             $scope.daysInfo = scndtabinfo[1];
             displayWeatherIcon("icon2", scndtabinfo[0].icon);
             $scope.summary = scndtabinfo[0].summary;
@@ -49,13 +48,16 @@ app.controller('tabController', function ($scope) {
     $scope.setTab = function (newTab) {
         $scope.tab = newTab;
     };
-
     $scope.isSet = function (tabNum) {
         return $scope.tab === tabNum;
     };
-    $scope.clickedDayTab = function () {
+    $scope.setDayTab = function (tabDay) {
         debugger;
-        $scope.tab3 = true;
+        $scope.selectedTab = tabDay;
+        displayWeatherIcon("iconDay", tabDay.icon);
+        $scope.daysummary = tabDay.summary;
+        $scope.dayminTemp = `${tabDay.minTemp}-`;
+        $scope.daymaxTemp = `${tabDay.maxTemp}º`;
     }
 });
 function getQueryStringParameter(urlParameterKey) {
