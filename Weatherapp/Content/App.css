@@ -1,8 +1,22 @@
-﻿.time {
-    font-size: 30px;
+﻿.weatherApp {
+    font-size: 18px;
+}
+.time {
     margin-top: 16px;
     margin-bottom: 16px;
 }
 .row div:nth-child(-n + 2) {
     margin-top: 17px;
+}
+#icon1 {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 47px;
+}
+.tabSecnd > p {
+    margin-top: 17px;
+}
+.nav-tabs > li > a:hover {
+    cursor: pointer;
 }
